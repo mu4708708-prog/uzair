@@ -12,6 +12,91 @@
 </head>
 <body>
 
+    <!-- PASSWORD PROTECTION SCREEN -->
+    <div id="passwordScreen" style="
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #0a1a2e 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        flex-direction: column;
+        font-family: 'Poppins', sans-serif;
+    ">
+        <div style="
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 24px;
+            padding: 50px 40px;
+            text-align: center;
+            max-width: 380px;
+            width: 90%;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+        ">
+            <div style="font-size: 56px; margin-bottom: 16px;">🔐</div>
+            <h2 style="color: #fff; margin: 0 0 8px; font-size: 22px; font-weight: 700;">Private Page</h2>
+            <p style="color: rgba(255,255,255,0.5); font-size: 13px; margin: 0 0 28px;">Enter password to continue</p>
+            <input id="pwdInput" type="password" placeholder="Enter password..." onkeydown="if(event.key==='Enter')checkPwd()" style="
+                width: 100%;
+                padding: 14px 18px;
+                border-radius: 12px;
+                border: 1.5px solid rgba(255,255,255,0.2);
+                background: rgba(255,255,255,0.08);
+                color: #fff;
+                font-size: 15px;
+                font-family: 'Poppins', sans-serif;
+                outline: none;
+                box-sizing: border-box;
+                margin-bottom: 14px;
+                transition: border-color 0.3s;
+            " onfocus="this.style.borderColor='#a78bfa'" onblur="this.style.borderColor='rgba(255,255,255,0.2)'">
+            <button onclick="checkPwd()" style="
+                width: 100%;
+                padding: 14px;
+                border-radius: 12px;
+                border: none;
+                background: linear-gradient(135deg, #7c3aed, #a855f7);
+                color: #fff;
+                font-size: 15px;
+                font-weight: 600;
+                font-family: 'Poppins', sans-serif;
+                cursor: pointer;
+                transition: opacity 0.2s, transform 0.1s;
+                letter-spacing: 0.5px;
+            " onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'" onmousedown="this.style.transform='scale(0.98)'" onmouseup="this.style.transform='scale(1)'">
+                Unlock ✨
+            </button>
+            <p id="pwdError" style="color:#f87171; font-size:13px; margin:12px 0 0; display:none;">❌ Wrong password. Try again!</p>
+        </div>
+    </div>
+
+    <script>
+        function checkPwd() {
+            var entered = document.getElementById('pwdInput').value;
+            if (entered === 'pakistan123') {
+                var screen = document.getElementById('passwordScreen');
+                screen.style.transition = 'opacity 0.6s ease';
+                screen.style.opacity = '0';
+                setTimeout(function() { screen.style.display = 'none'; }, 600);
+                sessionStorage.setItem('unlocked', 'yes');
+            } else {
+                var err = document.getElementById('pwdError');
+                err.style.display = 'block';
+                var input = document.getElementById('pwdInput');
+                input.style.borderColor = '#f87171';
+                input.value = '';
+                setTimeout(function() { input.style.borderColor = 'rgba(255,255,255,0.2)'; }, 1500);
+            }
+        }
+        // Auto-unlock if already unlocked in this session
+        if (sessionStorage.getItem('unlocked') === 'yes') {
+            document.getElementById('passwordScreen').style.display = 'none';
+        }
+    </script>
+
     <!-- Starfield canvas -->
     <canvas id="starsCanvas"></canvas>
     <!-- Confetti canvas -->
