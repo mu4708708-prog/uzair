@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,11 @@
     <link rel="stylesheet" href="Style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;600;700;800;900&family=Dancing+Script:wght@600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <!-- PASSWORD PROTECTION SCREEN -->
@@ -39,7 +43,8 @@
             <div style="font-size: 56px; margin-bottom: 16px;">🔐</div>
             <h2 style="color: #fff; margin: 0 0 8px; font-size: 22px; font-weight: 700;">Private Page</h2>
             <p style="color: rgba(255,255,255,0.5); font-size: 13px; margin: 0 0 28px;">Enter password to continue</p>
-            <input id="pwdInput" type="password" placeholder="Enter password..." onkeydown="if(event.key==='Enter')checkPwd()" style="
+            <input id="pwdInput" type="password" placeholder="Enter password..."
+                onkeydown="if(event.key==='Enter')checkPwd()" style="
                 width: 100%;
                 padding: 14px 18px;
                 border-radius: 12px;
@@ -66,10 +71,12 @@
                 cursor: pointer;
                 transition: opacity 0.2s, transform 0.1s;
                 letter-spacing: 0.5px;
-            " onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'" onmousedown="this.style.transform='scale(0.98)'" onmouseup="this.style.transform='scale(1)'">
+            " onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'"
+                onmousedown="this.style.transform='scale(0.98)'" onmouseup="this.style.transform='scale(1)'">
                 Unlock ✨
             </button>
-            <p id="pwdError" style="color:#f87171; font-size:13px; margin:12px 0 0; display:none;">❌ Wrong password. Try again!</p>
+            <p id="pwdError" style="color:#f87171; font-size:13px; margin:12px 0 0; display:none;">❌ Wrong password. Try
+                again!</p>
         </div>
     </div>
 
@@ -80,7 +87,7 @@
                 var screen = document.getElementById('passwordScreen');
                 screen.style.transition = 'opacity 0.6s ease';
                 screen.style.opacity = '0';
-                setTimeout(function() { screen.style.display = 'none'; }, 600);
+                setTimeout(function () { screen.style.display = 'none'; }, 600);
                 sessionStorage.setItem('unlocked', 'yes');
             } else {
                 var err = document.getElementById('pwdError');
@@ -88,7 +95,7 @@
                 var input = document.getElementById('pwdInput');
                 input.style.borderColor = '#f87171';
                 input.value = '';
-                setTimeout(function() { input.style.borderColor = 'rgba(255,255,255,0.2)'; }, 1500);
+                setTimeout(function () { input.style.borderColor = 'rgba(255,255,255,0.2)'; }, 1500);
             }
         }
         // Auto-unlock if already unlocked in this session
@@ -110,10 +117,10 @@
     <button id="musicBtn" class="music-btn" aria-label="Toggle Music">🎵</button>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        var _ytPlayer  = null;
-        var _ytReady   = false;
-        var _musicOn   = false;
-        var _wantPlay  = false; // set true when user clicks before player ready
+        var _ytPlayer = null;
+        var _ytReady = false;
+        var _musicOn = false;
+        var _wantPlay = false; // set true when user clicks before player ready
 
         function onYouTubeIframeAPIReady() {
             _ytPlayer = new YT.Player('ytPlayer', {
@@ -127,7 +134,7 @@
                     disablekb: 1
                 },
                 events: {
-                    onReady: function(e) {
+                    onReady: function (e) {
                         _ytReady = true;
                         e.target.setVolume(80);
                         if (_wantPlay) { e.target.playVideo(); _musicOn = true; }
@@ -265,9 +272,15 @@
 
             <div class="cake-wrap" id="cakeWrap">
                 <div class="candles-row">
-                    <div class="candle c-yellow"><div class="flame" id="f1"></div></div>
-                    <div class="candle c-pink"><div class="flame" id="f2"></div></div>
-                    <div class="candle c-blue"><div class="flame" id="f3"></div></div>
+                    <div class="candle c-yellow">
+                        <div class="flame" id="f1"></div>
+                    </div>
+                    <div class="candle c-pink">
+                        <div class="flame" id="f2"></div>
+                    </div>
+                    <div class="candle c-blue">
+                        <div class="flame" id="f3"></div>
+                    </div>
                 </div>
                 <div class="tier tier3">
                     <span class="tier-deco">⭐ ⭐</span>
@@ -297,9 +310,14 @@
                 <div class="curtain c-right" id="curtR"></div>
                 <div class="letter-card">
                     <p class="l-dear">Dear Jana,</p>
-                    <p class="l-body">Happy 23rd Birthday! 🎂 On your special day, I just wanted you to know how amazing you truly are.</p>
-                    <p class="l-body">You bring so much light, laughter, and love into everyone's life around you. Watching you grow into the beautiful, kind, and brilliant person you are today has been such a gift.</p>
-                    <p class="l-body">May this year bring you every dream you've been chasing, endless smiles, and the best kind of surprises. Never stop being YOU — the world is a better place with you shining in it.</p>
+                    <p class="l-body">Happy 23rd Birthday! 🎂 On your special day, I just wanted you to know how amazing
+                        you truly are.</p>
+                    <p class="l-body">You bring so much light, laughter, and love into everyone's life around you.
+                        Watching you grow into the beautiful, kind, and brilliant person you are today has been such a
+                        gift.</p>
+                    <p class="l-body">May this year bring you every dream you've been chasing, endless smiles, and the
+                        best kind of surprises. Never stop being YOU — the world is a better place with you shining in
+                        it.</p>
                     <p class="l-sign">Happy Birthday, Jana 🎂✨<br><em>— With all my heart ❤️</em></p>
                 </div>
             </div>
@@ -356,4 +374,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
